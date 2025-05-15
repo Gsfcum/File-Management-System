@@ -1,0 +1,490 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background: linear-gradient(120deg, #223366 0%, #e17055 100%);
+    color: #2d3436;
+    min-height: 100vh;
+}
+
+.app-layout {
+    display: flex;
+    min-height: 80vh;
+    background: #fff;
+    border-radius: 20px;
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.10);
+    margin: 40px auto;
+    max-width: 1400px;
+    overflow: hidden;
+    flex-direction: column;
+}
+
+.header-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #223366;
+    color: #fff;
+    padding: 24px 40px 18px 40px;
+    border-radius: 20px 20px 0 0;
+}
+.header-bar .logo {
+    width: 60px;
+    margin-right: 18px;
+}
+.header-bar .system-title {
+    font-size: 2em;
+    font-weight: 800;
+    letter-spacing: 1px;
+    color: #fff;
+}
+
+.main-panels {
+    display: flex;
+    flex: 1;
+    min-height: 0;
+}
+
+.panel {
+    flex: 1;
+    padding: 32px 24px;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    background: #f8f9fa;
+}
+.panel + .panel {
+    border-left: 2px solid #eaeaea;
+}
+
+.panel-title {
+    font-size: 1.3em;
+    font-weight: 700;
+    color: #223366;
+    margin-bottom: 18px;
+}
+
+.file-register-section {
+    margin-bottom: 32px;
+}
+
+.file-register-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+    margin-bottom: 18px;
+}
+.file-register-table th, .file-register-table td {
+    padding: 10px 8px;
+    border-bottom: 1px solid #eaeaea;
+    text-align: left;
+    font-size: 0.98em;
+}
+.file-register-table th {
+    background: #eaf6fb;
+    color: #223366;
+    font-weight: 700;
+}
+.file-register-table tr:last-child td {
+    border-bottom: none;
+}
+
+.file-register-form {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-bottom: 18px;
+}
+.file-register-form input, .file-register-form select {
+    padding: 8px 10px;
+    border: 1px solid #dfe6e9;
+    border-radius: 6px;
+    font-size: 1em;
+    min-width: 120px;
+}
+.file-register-form button {
+    background: #e17055;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    padding: 8px 18px;
+    font-size: 1em;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+.file-register-form button:hover {
+    background: #223366;
+}
+
+.classification-info {
+    font-size: 0.95em;
+    color: #636e72;
+    margin-top: 4px;
+}
+
+.notes-section {
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+    padding: 18px 14px;
+    margin-bottom: 18px;
+}
+.notes-section h3 {
+    margin-top: 0;
+    color: #e17055;
+    font-size: 1.1em;
+    margin-bottom: 10px;
+}
+.notes-list {
+    margin-bottom: 10px;
+}
+.note-item {
+    background: #eaf6fb;
+    border-radius: 6px;
+    padding: 8px 10px;
+    margin-bottom: 6px;
+    font-size: 0.98em;
+    color: #223366;
+}
+.add-note-form {
+    display: flex;
+    gap: 8px;
+}
+.add-note-form input {
+    flex: 1;
+    padding: 7px 10px;
+    border: 1px solid #dfe6e9;
+    border-radius: 6px;
+    font-size: 1em;
+}
+.add-note-form button {
+    background: #e17055;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    padding: 7px 16px;
+    font-size: 1em;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+.add-note-form button:hover {
+    background: #223366;
+}
+
+.files-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 22px;
+    margin-top: 10px;
+}
+.file-card {
+    background: #fff;
+    border-radius: 14px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 18px 14px 12px 14px;
+    transition: box-shadow 0.2s, transform 0.2s, border 0.2s;
+    position: relative;
+    min-width: 0;
+    border: 1.5px solid transparent;
+}
+.file-card:hover {
+    box-shadow: 0 4px 16px rgba(34,51,102,0.10);
+    transform: translateY(-2px) scale(1.03);
+    border: 1.5px solid #e17055;
+}
+.file-thumb {
+    width: 48px;
+    height: 48px;
+    object-fit: cover;
+    border-radius: 8px;
+    background: #eaf6fb;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.7em;
+    color: #223366;
+}
+.file-name {
+    font-size: 1em;
+    font-weight: 700;
+    color: #223366;
+    margin-bottom: 4px;
+    word-break: break-all;
+}
+.file-details {
+    font-size: 0.95em;
+    color: #636e72;
+    margin-bottom: 8px;
+}
+.file-actions {
+    display: flex;
+    gap: 8px;
+    margin-top: 6px;
+}
+.file-actions button {
+    background: #e17055;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    padding: 6px 12px;
+    cursor: pointer;
+    font-size: 0.98em;
+    transition: background 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+.file-actions button:hover {
+    background: #223366;
+}
+
+@media (max-width: 1100px) {
+    .main-panels {
+        flex-direction: column;
+    }
+    .panel + .panel {
+        border-left: none;
+        border-top: 2px solid #eaeaea;
+    }
+}
+
+@media (max-width: 700px) {
+    .header-bar {
+        flex-direction: column;
+        gap: 10px;
+        padding: 18px 8px 12px 8px;
+    }
+    .main-content {
+        padding: 12px 2px;
+    }
+    .panel {
+        padding: 16px 4px;
+    }
+    .fab-upload-btn {
+        right: 18px;
+        bottom: 18px;
+        width: 48px;
+        height: 48px;
+        font-size: 1.4em;
+    }
+    .upload-modal-content {
+        min-width: 90vw;
+        padding: 18px 6vw 18px 6vw;
+    }
+}
+
+/* Floating Upload Button (FAB) */
+.fab-upload-btn {
+    position: fixed;
+    bottom: 38px;
+    right: 48px;
+    z-index: 1000;
+    background: linear-gradient(120deg, #223366 60%, #e17055 100%);
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    width: 62px;
+    height: 62px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.1em;
+    box-shadow: 0 4px 16px rgba(34,51,102,0.18);
+    cursor: pointer;
+    transition: background 0.2s, box-shadow 0.2s, transform 0.2s;
+}
+.fab-upload-btn:hover {
+    background: linear-gradient(120deg, #e17055 60%, #223366 100%);
+    box-shadow: 0 8px 32px rgba(34,51,102,0.22);
+    transform: scale(1.08);
+}
+
+/* Upload Modal */
+.upload-modal {
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(34,51,102,0.12);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2000;
+    animation: fadeIn 0.2s;
+}
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+.upload-modal-content {
+    background: #fff;
+    border-radius: 18px;
+    box-shadow: 0 8px 32px rgba(34,51,102,0.18);
+    padding: 38px 32px 28px 32px;
+    min-width: 340px;
+    max-width: 95vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+.upload-modal-content h2 {
+    color: #223366;
+    margin-bottom: 18px;
+    font-size: 1.3em;
+}
+.upload-modal-close {
+    position: absolute;
+    top: 16px;
+    right: 18px;
+    background: none;
+    border: none;
+    font-size: 1.5em;
+    color: #e17055;
+    cursor: pointer;
+}
+.upload-drop-area {
+    border: 2px dashed #e17055;
+    border-radius: 12px;
+    background: #f8f9fa;
+    padding: 32px 24px;
+    text-align: center;
+    color: #223366;
+    font-size: 1.1em;
+    margin-bottom: 18px;
+    transition: border-color 0.2s, background 0.2s;
+}
+.upload-drop-area.dragover {
+    border-color: #223366;
+    background: #eaf6fb;
+}
+.upload-modal input[type="file"] {
+    display: none;
+}
+.upload-progress {
+    width: 100%;
+    height: 8px;
+    background: #eaf6fb;
+    border-radius: 6px;
+    margin-top: 10px;
+    overflow: hidden;
+}
+.upload-progress-bar {
+    height: 100%;
+    background: linear-gradient(90deg, #223366 60%, #e17055 100%);
+    width: 0%;
+    transition: width 0.3s;
+}
+
+/* Toast Notification */
+.notification {
+    position: fixed;
+    top: 32px;
+    right: 32px;
+    background: #223366;
+    color: #fff;
+    padding: 14px 28px;
+    border-radius: 8px;
+    font-size: 1.1em;
+    box-shadow: 0 2px 8px rgba(34,51,102,0.12);
+    z-index: 3000;
+    opacity: 0.98;
+    animation: fadeIn 0.2s;
+}
+.notification.success {
+    background: #27ae60;
+}
+.notification.error {
+    background: #e17055;
+}
+
+/* Hide default upload buttons */
+.upload-btn, #hiddenAnnexureInput, #hiddenCorrespondingInput {
+    display: none !important;
+}
+
+/* MacOS Glassmorphism for panels and modals */
+.panel, .upload-modal-content {
+    background: rgba(255,255,255,0.65) !important;
+    backdrop-filter: blur(16px) saturate(180%);
+    -webkit-backdrop-filter: blur(16px) saturate(180%);
+    border: 1.5px solid rgba(200,200,200,0.18);
+    box-shadow: 0 8px 32px 0 rgba(31,38,135,0.10), 0 1.5px 8px 0 rgba(31,38,135,0.08);
+}
+
+/* MacOS-style pill buttons */
+button, .fab-upload-btn {
+    border-radius: 999px !important;
+    font-family: -apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;
+    font-weight: 600;
+    letter-spacing: 0.01em;
+    transition: background 0.2s, box-shadow 0.2s, transform 0.2s;
+}
+button:active, .fab-upload-btn:active {
+    transform: scale(0.97);
+    box-shadow: 0 2px 8px rgba(34,51,102,0.10);
+}
+
+/* File/folder card MacOS hover/active (lift) */
+.file-card, .fab-upload-btn, .note-item, .file-register-table tr {
+    transition: box-shadow 0.22s cubic-bezier(.4,2,.6,1), transform 0.18s cubic-bezier(.4,2,.6,1), filter 0.18s;
+}
+.file-card:hover, .fab-upload-btn:hover, .note-item:hover, .file-register-table tr:hover {
+    box-shadow: 0 8px 32px 0 rgba(31,38,135,0.13);
+    transform: translateY(-2px) scale(1.04);
+    filter: brightness(1.08) saturate(1.1);
+    z-index: 2;
+}
+
+/* 3D Touch effect for file cards */
+.file-card-3dtouch {
+    transform: scale(1.08) perspective(600px) rotateX(6deg) !important;
+    box-shadow: 0 16px 48px 0 rgba(31,38,135,0.18), 0 2px 12px 0 rgba(31,38,135,0.10);
+    filter: brightness(1.13) blur(0.5px) saturate(1.2);
+    z-index: 10;
+}
+
+/* File preview popover (3D Touch peek) */
+.file-preview-popover {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-60%) scale(1.04);
+    min-width: 260px;
+    max-width: 340px;
+    background: rgba(255,255,255,0.85);
+    backdrop-filter: blur(18px) saturate(180%);
+    -webkit-backdrop-filter: blur(18px) saturate(180%);
+    border-radius: 18px;
+    box-shadow: 0 12px 48px 0 rgba(31,38,135,0.18), 0 2px 12px 0 rgba(31,38,135,0.10);
+    padding: 28px 22px 18px 22px;
+    z-index: 1002;
+    animation: popoverIn 0.18s cubic-bezier(.4,2,.6,1);
+    pointer-events: none;
+}
+@keyframes popoverIn {
+    from { opacity: 0; transform: translate(-50%,-60%) scale(0.95); }
+    to { opacity: 1; transform: translate(-50%,-60%) scale(1.04); }
+}
+
+/* Subtle fade for overlays */
+.upload-modal, .file-preview-overlay {
+    background: rgba(34,51,102,0.10) !important;
+    transition: background 0.18s;
+}
+
+/* System font for Mac feel */
+body, .system-title, .panel-title, .file-name, .note-item, .file-register-table, input, select, button {
+    font-family: -apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif !important;
+} 
